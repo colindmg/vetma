@@ -24,8 +24,15 @@ function App() {
   }, [appRef]);
 
   return (
-    <div className="app" id="app" ref={appRef} data-scroll-container>
-      <div className="justify-center flex align-center text-white">V3TMA</div>
+    <div
+      className="app flex justify-center items-center"
+      id="app"
+      ref={appRef}
+      data-scroll-container
+    >
+      <div className="text-5xl font-avec tracking-wide justify-center flex align-center text-white">
+        V3TMA
+      </div>
     </div>
   );
 }
