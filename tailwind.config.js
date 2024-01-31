@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
         avec: ["Times New Roman", "sans-serif"],
+        roboto: ["Roboto"],
       },
     },
   },
