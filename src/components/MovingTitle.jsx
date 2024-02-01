@@ -3,6 +3,7 @@ import { bigTitle } from "../constants";
 
 export const MovingTitle = () => {
   const [headerBigTitle, setHeaderBigTitle] = useState(bigTitle);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const reverseTitle = () => {
     const array = [...headerBigTitle];
@@ -20,6 +21,7 @@ export const MovingTitle = () => {
   };
 
   const sortTitle = async () => {
+    setIsAnimating(true);
     let array = [...headerBigTitle];
     for (let i = array.length - 1; i >= 0; i--) {
       await new Promise((resolve) => setTimeout(resolve, 100));
@@ -31,15 +33,18 @@ export const MovingTitle = () => {
       setHeaderBigTitle(array);
     }
     setHeaderBigTitle(randomImageChange(true));
+    setIsAnimating(false);
   };
 
   const handleMouseEnter = () => {
-    setHeaderBigTitle(reverseTitle());
-    sortTitle();
+    if (!isAnimating) {
+      setHeaderBigTitle(reverseTitle());
+      sortTitle();
+    }
   };
 
   return (
-    <div className="flex cursor-pointer" onMouseEnter={handleMouseEnter}>
+    <div className="flex" onMouseEnter={handleMouseEnter}>
       {headerBigTitle.map((item, index) => (
         <img
           className="pr-1"
