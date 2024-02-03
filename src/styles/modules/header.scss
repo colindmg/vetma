@@ -3,8 +3,9 @@ header.header {
   background-color: rgb(0, 26, 245);
 
   img,
-  h2 {
-    z-index: 9999;
+  h2,
+  .cray-container {
+    z-index: 40;
   }
 
   .grain {

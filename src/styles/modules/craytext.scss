@@ -19,7 +19,7 @@ $font: "Roboto", monospace;
 
   @keyframes cray {
     @for $i from 1 to $steps {
-      $per: 100% / $steps * $i;
+      $per: calc(100% / $steps) * $i;
       $weight: (100, 200, 300, 400, 500, 600, 700);
       $style: (normal, italic, normal, normal);
       $decor: (none, none, line-through, underline, none, none, none);
