@@ -1,5 +1,5 @@
-import { CrayText } from "./CrayText";
-import { MovingTitle } from "./MovingTitle";
+import { CrayText } from "../components/CrayText";
+import { MovingTitle } from "../components/MovingTitle";
 
 export const Header = () => {
   return (
@@ -8,7 +8,7 @@ export const Header = () => {
         <div className="grain z-40"></div>
         <div className="flex flex-col justify-center items-center">
           <MovingTitle />
-          <h2 className="font-avec text-white text-2xl mt-3 tracking-[3px]">
+          <h2 className="font-avec text-white text-2xl mt-3 tracking-[3px] max-md:text-lg">
             ✦ EMERGING BRAND MEDIA ✦
           </h2>
         </div>

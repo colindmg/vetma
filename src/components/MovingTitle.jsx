@@ -47,7 +47,7 @@ export const MovingTitle = () => {
     <div className="flex" onMouseEnter={handleMouseEnter}>
       {headerBigTitle.map((item, index) => (
         <img
-          className="pr-1"
+          className="pr-1 max-md:h-[50px]"
           key={index}
           src={item.image[item.currentImage]}
           alt={item.letter}

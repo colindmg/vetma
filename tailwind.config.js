@@ -8,6 +8,9 @@ export default {
         avec: ["Times New Roman", "sans-serif"],
         roboto: ["Roboto"],
       },
+      colors: {
+        vblue: "#001af5",
+      },
     },
   },
   plugins: [],
