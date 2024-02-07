@@ -8,7 +8,7 @@ function App() {
 
       <div className="flex flex-col z-50 sticky top-0" id="scrollBelowHeader">
         <Merchandising />
-        <div className="flex justify-center items-center bg-red-500 h-[560px]"></div>
+        <div className="flex justify-center items-center bg-gray-100 h-[560px]"></div>
       </div>
     </>
   );
