@@ -10,6 +10,7 @@ export default {
       },
       colors: {
         vblue: "#001af5",
+        darkblue: "#03139D",
       },
     },
   },

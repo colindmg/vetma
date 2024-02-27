@@ -1,9 +1,36 @@
-import { useState } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef, useState } from "react";
 import { bigTitle } from "../constants";
+import PropTypes from "prop-types";
+gsap.registerPlugin(ScrollTrigger);
 
-export const MovingTitle = () => {
+export const MovingTitle = (props) => {
   const [headerBigTitle, setHeaderBigTitle] = useState(bigTitle);
   const [isAnimating, setIsAnimating] = useState(false);
+  const lettersRef = useRef([]);
+
+  useLayoutEffect(() => {
+    const movementArray = [-70, 80, -90, 80, -70];
+    lettersRef.current.forEach((letter, index) => {
+      gsap.fromTo(
+        letter,
+        {
+          y: 0, // Départ à la position initiale
+        },
+        {
+          y: movementArray[index], // Déplacement alterné vers le haut ou vers le bas
+          scrollTrigger: {
+            trigger: props.headerRef.current,
+            scrub: true,
+            start: "top top",
+            end: "bottom bottom",
+            // markers: true,
+          },
+        }
+      );
+    });
+  }, [headerBigTitle, props.headerRef]);
 
   // Mets les lettres du titre dans l'ordre inverse
   const reverseTitle = () => {
@@ -41,7 +68,7 @@ export const MovingTitle = () => {
 
   // Lors du hover sur le titre, anime le titre
   const handleMouseEnter = () => {
-    if (!isAnimating) {
+    if (!isAnimating && window.scrollY === 0) {
       setHeaderBigTitle(reverseTitle());
       sortTitle();
     }
@@ -51,6 +78,7 @@ export const MovingTitle = () => {
     <div className="flex" onMouseEnter={handleMouseEnter}>
       {headerBigTitle.map((item, index) => (
         <img
+          ref={(el) => (lettersRef.current[index] = el)}
           className="pr-1 max-md:h-[50px]"
           key={index}
           src={item.image[item.currentImage]}
@@ -59,4 +87,8 @@ export const MovingTitle = () => {
       ))}
     </div>
   );
+};
+
+MovingTitle.propTypes = {
+  headerRef: PropTypes.object.isRequired,
 };
