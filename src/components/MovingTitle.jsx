@@ -5,11 +5,13 @@ export const MovingTitle = () => {
   const [headerBigTitle, setHeaderBigTitle] = useState(bigTitle);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  // Mets les lettres du titre dans l'ordre inverse
   const reverseTitle = () => {
     const array = [...headerBigTitle];
     return array.reverse();
   };
 
+  // Change l'image de chaque lettre du titre aléatoirement ou remet l'image de base si setBasicImage vaut true
   const randomImageChange = (setBasicImage = false) => {
     const array = [...headerBigTitle];
     array.forEach((item) => {
@@ -20,6 +22,7 @@ export const MovingTitle = () => {
     return array;
   };
 
+  // Anime le titre en le triant lettre par lettre et changeant l'image de chaque lettre aléatoirement à chaque étape
   const sortTitle = async () => {
     setIsAnimating(true);
     let array = [...headerBigTitle];
@@ -36,6 +39,7 @@ export const MovingTitle = () => {
     setIsAnimating(false);
   };
 
+  // Lors du hover sur le titre, anime le titre
   const handleMouseEnter = () => {
     if (!isAnimating) {
       setHeaderBigTitle(reverseTitle());
