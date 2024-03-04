@@ -12,6 +12,8 @@ export default {
         vblue: "#001af5",
         darkblue: "#03139D",
         darkgray: "#0C0C0C",
+        white0: "rgba(255, 255, 255, 0)",
+        white30: "rgba(255, 255, 255, 0.3)",
       },
     },
   },

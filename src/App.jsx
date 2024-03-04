@@ -4,10 +4,11 @@ import { HorizontalSection } from "./sections/HorizontalSection";
 
 function App() {
   return (
-    <div className="overflow-clip">
+    <div>
       <NavBar />
       <Header />
       <HorizontalSection />
+      <div className="relative z-[100] w-full h-screen bg-red-500"></div>
     </div>
   );
 }

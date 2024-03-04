@@ -30,7 +30,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 overflow-hidden">
       <header
         ref={headerRef}
         className="header flex flex-col justify-center items-center"
