@@ -4,13 +4,14 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
         avec: ["Times New Roman", "sans-serif"],
         roboto: ["Roboto"],
       },
       colors: {
         vblue: "#001af5",
         darkblue: "#03139D",
+        darkgray: "#0C0C0C",
       },
     },
   },

@@ -2,6 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Fonts Personnalisées */
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/InterVariable.ttf") format("truetype");
+  font-style: normal;
+}
+
 html {
   scroll-behavior: smooth;
 }
