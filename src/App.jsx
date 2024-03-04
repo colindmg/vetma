@@ -4,7 +4,7 @@ import { HorizontalSection } from "./sections/HorizontalSection";
 
 function App() {
   return (
-    <div>
+    <div className="overflow-clip">
       <NavBar />
       <Header />
       <HorizontalSection />

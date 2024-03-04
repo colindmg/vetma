@@ -5,6 +5,8 @@ import {
   CoverMag2,
   DetailsTee,
   WhiteTee,
+  Scratch1,
+  Scratch2,
 } from "../assets/img";
 
 export const HorizontalSection = () => {
@@ -97,6 +99,11 @@ export const HorizontalSection = () => {
           <span className="font-medium">the creation of clothing</span>. This
           is, the magician who conjures up garments in his cauldron was born.
         </p>
+      </div>
+
+      <div className="relative w-[638px] h-[525px] ml-20">
+        <img src={Scratch1} className="absolute w-[427px] top-0 left-0" />
+        <img src={Scratch2} className="absolute w-[427px] bottom-0 right-0" />
       </div>
     </div>
   );
