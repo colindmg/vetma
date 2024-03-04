@@ -11,6 +11,7 @@ export const MovingTitle = (props) => {
   const lettersRef = useRef([]);
 
   useLayoutEffect(() => {
+    const endHeight = window.innerHeight - 50;
     const movementArray = [-70, 80, -90, 80, -70];
     lettersRef.current.forEach((letter, index) => {
       gsap.fromTo(
@@ -24,7 +25,7 @@ export const MovingTitle = (props) => {
             trigger: props.headerRef.current,
             scrub: true,
             start: "top top",
-            end: "bottom bottom",
+            end: "+=" + endHeight,
             // markers: true,
           },
         }

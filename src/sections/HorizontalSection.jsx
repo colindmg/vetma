@@ -9,7 +9,7 @@ import {
   WhiteTee,
 } from "../assets/img";
 
-import { useRef, useEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -19,7 +19,7 @@ export const HorizontalSection = () => {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const totalWidth = 3700;
 
     // Initialisez l'animation avec ScrollTrigger
@@ -30,8 +30,9 @@ export const HorizontalSection = () => {
         trigger: containerRef.current,
         pin: true,
         scrub: 1,
-        start: "top top",
+        // start: "top top",
         end: () => "+=" + totalWidth,
+        // markers: true,
       },
     });
 
