@@ -13,6 +13,7 @@ import { useRef, useLayoutEffect } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { HorizontalImage } from "../components/HorizontalImage";
 gsap.registerPlugin(ScrollTrigger);
 
 export const HorizontalSection = () => {
@@ -54,16 +55,29 @@ export const HorizontalSection = () => {
           ref={(el) => (sectionsRef.current[0] = el)}
           className="relative ml-40"
         >
-          <img
+          <HorizontalImage
+            src={CoverMag1}
+            alt={"Cover du magazine Vetma Collector"}
+            height={"507px"}
+          />
+          {/* <img
             src={CoverMag1}
             className="h-[507px]"
             alt="Cover du magazine Vetma Collector"
+          /> */}
+          <HorizontalImage
+            src={CoverMag2}
+            alt={"Cover du magazine de base"}
+            height={"258px"}
+            bottom={"-80px"}
+            right={"-112px"}
+            isAbsolute
           />
-          <img
+          {/* <img
             src={CoverMag2}
             className="h-[258px] absolute -bottom-20 -right-28 "
             alt="Cover du magazine de base"
-          />
+          /> */}
           <img
             src={BackMag}
             className="h-[258px] absolute top-1/4 -left-32"
