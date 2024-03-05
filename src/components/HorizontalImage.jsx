@@ -1,9 +1,15 @@
 import PropTypes from "prop-types";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export const HorizontalImage = (props) => {
-  console.log(props);
+  const imageRef = useRef(null);
+
   return (
     <img
+      ref={imageRef}
       src={props.src}
       alt={props.alt}
       style={{

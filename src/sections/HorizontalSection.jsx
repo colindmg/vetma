@@ -9,7 +9,7 @@ import {
   WhiteTee,
 } from "../assets/img";
 
-import { useRef, useLayoutEffect } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -60,11 +60,6 @@ export const HorizontalSection = () => {
             alt={"Cover du magazine Vetma Collector"}
             height={"507px"}
           />
-          {/* <img
-            src={CoverMag1}
-            className="h-[507px]"
-            alt="Cover du magazine Vetma Collector"
-          /> */}
           <HorizontalImage
             src={CoverMag2}
             alt={"Cover du magazine de base"}
@@ -73,15 +68,13 @@ export const HorizontalSection = () => {
             right={"-112px"}
             isAbsolute
           />
-          {/* <img
-            src={CoverMag2}
-            className="h-[258px] absolute -bottom-20 -right-28 "
-            alt="Cover du magazine de base"
-          /> */}
-          <img
+          <HorizontalImage
             src={BackMag}
-            className="h-[258px] absolute top-1/4 -left-32"
-            alt="Back du magazine"
+            alt={"Back du magazine"}
+            height={"258px"}
+            top={"25%"}
+            left={"-128px"}
+            isAbsolute
           />
         </div>
 
@@ -111,16 +104,26 @@ export const HorizontalSection = () => {
           className="relative h-[507px] w-[550px]"
           ref={(el) => (sectionsRef.current[2] = el)}
         >
-          <img src={WhiteTee} className="w-[381px]" alt="White Magic Tee" />
-          <img
-            src={BlueTee}
-            className="absolute w-[381px] top-1/2 right-0"
-            alt="Blue Magic Tee"
+          <HorizontalImage
+            src={WhiteTee}
+            width={"381px"}
+            alt={"White Magic Tee"}
           />
-          <img
+          <HorizontalImage
+            src={BlueTee}
+            width={"381px"}
+            alt={"Blue Magic Tee"}
+            top={"50%"}
+            right={"0"}
+            isAbsolute
+          />
+          <HorizontalImage
             src={DetailsTee}
-            className="absolute w-[100px] top-14 -right-6"
-            alt="Details Magic Tee"
+            width={"100px"}
+            alt={"Details Magic Tee"}
+            top={"56px"}
+            right={"-24px"}
+            isAbsolute
           />
         </div>
 
@@ -167,8 +170,22 @@ export const HorizontalSection = () => {
           className="relative w-[638px] h-[525px] ml-20"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
-          <img src={Scratch1} className="absolute w-[427px] top-0 left-0" />
-          <img src={Scratch2} className="absolute w-[427px] bottom-0 right-0" />
+          <HorizontalImage
+            src={Scratch1}
+            width={"427px"}
+            alt={"Scratch Magic Tee"}
+            top={"0"}
+            left={"0"}
+            isAbsolute
+          />
+          <HorizontalImage
+            src={Scratch2}
+            width={"427px"}
+            alt={"Scratch Magic Tee"}
+            bottom={"0"}
+            right={"0"}
+            isAbsolute
+          />
         </div>
       </div>
     </div>
