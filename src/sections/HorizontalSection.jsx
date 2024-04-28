@@ -6,10 +6,11 @@ import {
   DetailsTee,
   Scratch1,
   Scratch2,
+  StarBlack,
   WhiteTee,
 } from "../assets/img";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
@@ -31,6 +32,7 @@ export const HorizontalSection = () => {
       x: () => -totalWidth + window.innerWidth,
       ease: "none",
       scrollTrigger: {
+        id: "horizontalScroll",
         trigger: containerRef.current,
         pin: true,
         scrub: 1,
@@ -46,12 +48,91 @@ export const HorizontalSection = () => {
     };
   }, []);
 
+  // PROGRESSION DE SCROLL
+  const [progress, setProgress] = useState(0);
+  let firstStar = useRef(null);
+  let secondStar = useRef(null);
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY < window.innerHeight) {
+        return;
+      }
+      setProgress(
+        ScrollTrigger.getById("horizontalScroll").progress.toFixed(3) * 100
+      );
+    };
+
+    window.addEventListener("scroll", scrollListener);
+  }, []);
+
+  // ANIMATION DES ÉTOILES
+  useGSAP(() => {
+    if (progress == 100) return;
+    if (progress <= 0.5) {
+      gsap.to(firstStar.current, {
+        opacity: 0.3,
+        scale: 1,
+        duration: 0.5,
+      });
+      gsap.to(secondStar.current, {
+        opacity: 0.3,
+        scale: 1,
+        duration: 0.5,
+      });
+    }
+
+    if (progress > 0) {
+      gsap.to(firstStar.current, {
+        opacity: 1,
+        scale: 1.5,
+        duration: 0.5,
+      });
+    }
+
+    if (progress > 99) {
+      gsap.to(secondStar.current, {
+        opacity: 1,
+        scale: 1.5,
+        duration: 0.5,
+      });
+    } else {
+      gsap.to(secondStar.current, {
+        opacity: 0.3,
+        scale: 1,
+        duration: 0.5,
+      });
+    }
+  }, [progress]);
+
   return (
     <div className="overflow-x-hidden z-50 relative" id="scroll">
+      {/* CONTAINER DU SCROLL HORIZONTAL */}
       <div
         ref={containerRef}
         className="flex items-center px-24 h-screen w-full min-w-max bg-white"
       >
+        {/* BARRE DE PROGRESSION */}
+        <div className="absolute z-[100] w-[400px] h-[2px] bg-darkgray/30 top-16 left-[50vw] transform -translate-x-1/2">
+          <div
+            className="h-full bg-darkgray"
+            style={{ width: progress + "%" }}
+          ></div>
+
+          {/* ÉTOILES */}
+          <img
+            ref={firstStar}
+            src={StarBlack}
+            className="absolute top-1/2 -left-5 w-4 opacity-30 transform -translate-y-1/2"
+            alt="Étoile"
+          />
+          <img
+            ref={secondStar}
+            src={StarBlack}
+            className="absolute top-1/2 -right-5 w-4 opacity-30 transform -translate-y-1/2"
+            alt="Étoile"
+          />
+        </div>
+
         {/* Gradient de flou blanc */}
         <div className="absolute top-0 left-0 w-20 z-[100] h-full bg-gradient-to-r from-white to-transparent"></div>
 
@@ -132,14 +213,14 @@ export const HorizontalSection = () => {
         </div>
 
         <div
-          className="relative flex flex-col w-[630px] ml-48"
+          className="relative flex flex-col w-[630px] ml-48 h-3/5"
           ref={(el) => (sectionsRef.current[3] = el)}
         >
           <h2 className="text-[64px] font-avec uppercase text-darkgray tracking-wider">
             Magic tees
           </h2>
           <h4 className="text-darkgray text-xl absolute top-[75px] font-inter font-normal">
-            2024 - Merchandising.
+            2024 - Merchandising
           </h4>
           <p className="text-darkgray font-inter text-[16px] tracking-wide leading-tight mt-7">
             SPECIAL MAGIC TEE - 100% COTTON 230 GSM - Screen-Printed
@@ -153,6 +234,21 @@ export const HorizontalSection = () => {
             <br />
             Design by @jeuneaki with @rocketboy
           </p>
+
+          <HorizontalImage
+            src={Scratch2}
+            width={"427px"}
+            alt={"Scratch Magic Tee"}
+            bottom={"-50px"}
+            right={"50px"}
+            isAbsolute
+          />
+        </div>
+
+        <div
+          className="relative w-[638px] h-[525px] ml-20 flex flex-col justify-end h-3/5"
+          ref={(el) => (sectionsRef.current[4] = el)}
+        >
           <p className="text-darkgray font-inter text-[16px] tracking-wide leading-tight mt-6">
             <span className="font-medium">BEHIND THE SCENES : ROCKETBOY</span>
             <br />
@@ -168,26 +264,12 @@ export const HorizontalSection = () => {
             <span className="font-medium">the creation of clothing</span>. This
             is, the magician who conjures up garments in his cauldron was born.
           </p>
-        </div>
-
-        <div
-          className="relative w-[638px] h-[525px] ml-20"
-          ref={(el) => (sectionsRef.current[4] = el)}
-        >
           <HorizontalImage
             src={Scratch1}
             width={"427px"}
             alt={"Scratch Magic Tee"}
             top={"0"}
             left={"0"}
-            isAbsolute
-          />
-          <HorizontalImage
-            src={Scratch2}
-            width={"427px"}
-            alt={"Scratch Magic Tee"}
-            bottom={"0"}
-            right={"0"}
             isAbsolute
           />
         </div>

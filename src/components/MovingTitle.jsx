@@ -33,6 +33,10 @@ export const MovingTitle = (props) => {
         }
       );
     });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
   }, [headerBigTitle, props.headerRef]);
 
   // Mets les lettres du titre dans l'ordre inverse

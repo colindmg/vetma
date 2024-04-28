@@ -100,6 +100,11 @@ export const PhotosSectionTitle = () => {
         },
       }
     );
+
+    // CLEAR des scrollTriggers
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
   }, []);
 
   return (
