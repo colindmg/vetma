@@ -115,7 +115,7 @@ export const HorizontalSection = () => {
   }, [progress]);
 
   return (
-    <div className="overflow-x-hidden z-50 relative" id="scroll">
+    <div className="overflow-x-hidden z-50 relative cursor-default" id="scroll">
       {/* CONTAINER DU SCROLL HORIZONTAL */}
       <div
         ref={containerRef}

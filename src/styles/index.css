@@ -28,12 +28,14 @@ html {
   -webkit-clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
   clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
   transition: clip-path 100ms;
+  opacity: 0;
 }
 
 .carousel-inverted.isActive {
   -webkit-clip-path: circle(50px at var(--x, 50%) var(--y, 50%));
   clip-path: circle(50px at var(--x, 50%) var(--y, 50%));
   transition: clip-path 100ms;
+  opacity: 1;
 }
 
 header.header {
