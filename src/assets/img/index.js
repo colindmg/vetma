@@ -3,6 +3,7 @@ import BackMag from "./backmagazine.png";
 import BasketIcon from "./basket-outline.svg";
 import CoverMag1 from "./cover1magazine.png";
 import CoverMag2 from "./cover2magazine.png";
+import FooterLogo from "./footer-logo.svg";
 import Scratch1 from "./scratch1.png";
 import Scratch2 from "./scratch2.png";
 import SearchIcon from "./search-outline.svg";
@@ -51,6 +52,7 @@ export {
   CoverMag1,
   CoverMag2,
   DetailsTee,
+  FooterLogo,
   Scratch1,
   Scratch2,
   SearchIcon,

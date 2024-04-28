@@ -1,4 +1,5 @@
 import { NavBar } from "./components/NavBar";
+import { Footer } from "./sections/Footer";
 import { Header } from "./sections/Header";
 import { HorizontalSection } from "./sections/HorizontalSection";
 import { PhotosSection } from "./sections/PhotosSection";
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <HorizontalSection />
       <PhotosSection />
+      <Footer />
     </div>
   );
 }
