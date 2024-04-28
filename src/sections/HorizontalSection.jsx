@@ -104,6 +104,16 @@ export const HorizontalSection = () => {
     }
   }, [progress]);
 
+  // DECLENCHER L'APPARITION DES IMAGES
+  const [firstTrigger, setFirstTrigger] = useState(false);
+  const [secondTrigger, setSecondTrigger] = useState(false);
+  const [thirdTrigger, setThirdTrigger] = useState(false);
+  useEffect(() => {
+    progress > 50 ? setFirstTrigger(true) : setFirstTrigger(false);
+    progress > 70 ? setSecondTrigger(true) : setSecondTrigger(false);
+    progress > 90 ? setThirdTrigger(true) : setThirdTrigger(false);
+  }, [progress]);
+
   return (
     <div className="overflow-x-hidden z-50 relative" id="scroll">
       {/* CONTAINER DU SCROLL HORIZONTAL */}
@@ -209,6 +219,8 @@ export const HorizontalSection = () => {
             top={"56px"}
             right={"-24px"}
             isAbsolute
+            animate={firstTrigger}
+            markers={1}
           />
         </div>
 
@@ -242,11 +254,13 @@ export const HorizontalSection = () => {
             bottom={"-50px"}
             right={"50px"}
             isAbsolute
+            markers={2}
+            animate={secondTrigger}
           />
         </div>
 
         <div
-          className="relative w-[638px] h-[525px] ml-20 flex flex-col justify-end h-3/5"
+          className="relative w-[638px] ml-20 flex flex-col justify-end h-3/5"
           ref={(el) => (sectionsRef.current[4] = el)}
         >
           <p className="text-darkgray font-inter text-[16px] tracking-wide leading-tight mt-6">
@@ -271,6 +285,8 @@ export const HorizontalSection = () => {
             top={"0"}
             left={"0"}
             isAbsolute
+            markers={2}
+            animate={thirdTrigger}
           />
         </div>
       </div>
