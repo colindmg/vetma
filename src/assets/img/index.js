@@ -7,6 +7,7 @@ import FooterLogo from "./footer-logo.svg";
 import Scratch1 from "./scratch1.png";
 import Scratch2 from "./scratch2.png";
 import SearchIcon from "./search-outline.svg";
+import StarBlack from "./star-black.svg";
 import Star from "./star.svg";
 import BlueTee from "./teeblue.png";
 import DetailsTee from "./teedetail.png";
@@ -87,5 +88,6 @@ export {
   SliderImage8,
   SliderImage9,
   Star,
+  StarBlack,
   WhiteTee,
 };

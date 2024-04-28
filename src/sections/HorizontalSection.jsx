@@ -90,7 +90,7 @@ export const HorizontalSection = () => {
             Éphéméride
           </h2>
           <h4 className="text-darkgray text-xl absolute top-[75px] font-inter font-normal">
-            2023 - Collector Magazine.
+            2023 - Collector Magazine
           </h4>
           <p className="text-darkgray font-inter text-[16px] tracking-wide leading-tight mt-7">
             In this inaugural issue of{" "}

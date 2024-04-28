@@ -19,6 +19,23 @@ html {
   width: 0px;
 }
 
+/* STYLE DE L'IMAGE INVERSÉE dans le caroussel */
+.wrappertest {
+  backface-visibility: hidden;
+}
+
+.carousel-inverted {
+  -webkit-clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
+  clip-path: circle(0px at var(--x, 50%) var(--y, 50%));
+  transition: clip-path 100ms;
+}
+
+.carousel-inverted.isActive {
+  -webkit-clip-path: circle(50px at var(--x, 50%) var(--y, 50%));
+  clip-path: circle(50px at var(--x, 50%) var(--y, 50%));
+  transition: clip-path 100ms;
+}
+
 header.header {
   height: 100vh;
   background-color: #001af5;
@@ -398,5 +415,3 @@ header.header .grain:before {
     text-transform: none;
   }
 }
-
-/*# sourceMappingURL=index.css.map */
