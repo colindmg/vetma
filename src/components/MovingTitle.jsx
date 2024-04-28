@@ -1,16 +1,18 @@
+import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef, useState } from "react";
-import { bigTitle } from "../constants";
 import PropTypes from "prop-types";
+import { useRef, useState } from "react";
+import { bigTitle } from "../constants";
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(useGSAP);
 
 export const MovingTitle = (props) => {
   const [headerBigTitle, setHeaderBigTitle] = useState(bigTitle);
   const [isAnimating, setIsAnimating] = useState(false);
   const lettersRef = useRef([]);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     const endHeight = window.innerHeight - 50;
     const movementArray = [-70, 80, -90, 80, -70];
     lettersRef.current.forEach((letter, index) => {

@@ -11,6 +11,12 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* Style de la scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
 }
 
 header.header {

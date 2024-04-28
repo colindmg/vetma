@@ -9,18 +9,21 @@ import {
   WhiteTee,
 } from "../assets/img";
 
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HorizontalImage } from "../components/HorizontalImage";
 gsap.registerPlugin(ScrollTrigger);
 
+gsap.registerPlugin(useGSAP);
+
 export const HorizontalSection = () => {
   const containerRef = useRef(null);
   const sectionsRef = useRef([]);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     const totalWidth = 3700;
 
     // Initialisez l'animation avec ScrollTrigger
@@ -31,6 +34,7 @@ export const HorizontalSection = () => {
         trigger: containerRef.current,
         pin: true,
         scrub: 1,
+        ease: "none",
         // start: "top top",
         end: () => "+=" + totalWidth,
         // markers: true,
@@ -43,13 +47,13 @@ export const HorizontalSection = () => {
   }, []);
 
   return (
-    <div className="overflow-x-hidden z-50 relative" id="scrollBelowHeader">
+    <div className="overflow-x-hidden z-50 relative" id="scroll">
       <div
         ref={containerRef}
         className="flex items-center px-24 h-screen w-full min-w-max bg-white"
       >
         {/* Gradient de flou blanc */}
-        <div className="w-24 bg-gradient-to-r from-white to-white0 via-white30 absolute h-full top-0 left-0 z-[100]"></div>
+        <div className="absolute top-0 left-0 w-20 z-[100] h-full bg-gradient-to-r from-white to-transparent"></div>
 
         <div
           ref={(el) => (sectionsRef.current[0] = el)}

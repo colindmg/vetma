@@ -50,7 +50,7 @@ export const Header = () => {
           </div>
         </div>
 
-        <CrayText textContent="Scroll" url="#scrollBelowHeader" />
+        <CrayText textContent="Scroll" url="#scroll" />
       </header>
     </div>
   );
